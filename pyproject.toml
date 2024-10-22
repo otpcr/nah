@@ -1,0 +1,41 @@
+# This file is placed in the Public Domain.
+
+[build-system]
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nah"
+version = "1"
+authors = [
+    {name = "Bart Thate", email = "record11719@gmail.com" },
+]
+description = "NAH"
+readme = "README.rst"
+license = { text="Public Domain"}
+classifiers=[
+    'Development Status :: 4 - Beta',
+    'License :: Public Domain',
+    'Operating System :: Unix',
+    'Programming Language :: Python :: 3',
+    'Topic :: Utilities'
+]
+
+
+[project.scripts]
+"nahctl" = "nah.cli:wrapped"
+"nahbot" = "nah.console:wrapped"
+"nahd" = "nah.daemon:main"
+"nahs" = "nah.service:wrapped"
+
+
+[project.urls]
+"home" = "https://pypi.org/project/nah"
+"bugs" = "https://github.com/otpcr/nah/issues"
+"source" = "https://github.com/otpcr/nah"
+
+[tool.setuptools]
+packages = [
+   'nah',
+   'nah.modules'
+]
