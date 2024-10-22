@@ -1,53 +1,209 @@
-| **Information and Evidence Unit**
-| **Office of the Prosecutor**
-| **Post Office Box 19519**
-| **2500 CM The Hague**
-| **The Netherlands** 
-|
+**NAME**
+
+::
+
+    nah - NAH
 
 
-Hello Office of the Prosecutor, 
+**SYNOPSIS**
 
-i write you in the context of communications and claims under art.15 of 
-the Rome Statute. i want to inform the prosecutor that the king of the 
-netherlands and his government are commiting 3 of the 5 crimes defined 
-in the Rome Statute. 
+::
 
-The dutch government has introduced three new forced care laws, the Wfz 
-(wet forensische zorg) for criminals, the WvGGZ (Wet verplichte GGZ) for 
-the disturbed and addicted and the Wzd (Wet zorg en dwang) for the 
-handicapped.
+    nahctl  <cmd> [key=val] [key==val]
+    nahbot [-i] [-v]
+    nahd 
+    nahs
 
-Both the chamber suggesting these laws to the king and the king himself 
-have been informed about the fact the the substances administered under 
-these laws are proven to be poison.
- 
-There is proof the medication used in forced treatements in the 
-netherlands are poison, see copies of the ECHA <`European Chemical Agency`>
-website for:
 
-(1) haldol
-(2) clozapine
-(3) zyprexa
-(4) abilify
+**DESCRIPTION**
 
-With the mass scale torture with poison the king of the netherlands and 
-his chamber:
+::
 
-(1) kills
-(2) does grave bodily and mental harm
-(3) makes impotent
+    NAH has all the python3 code to program a unix cli program, such as
+    disk perisistence for configuration files, event handler to
+    handle the client/server connection, deferred exception handling to not
+    crash on an error, a parser to parse commandline options and values, etc.
 
-on the following victim groups here in the Netherlands:
+    NAH uses object programming (OP) that allows for easy json save//load
+    to/from disk of objects. It provides an "clean namespace" Object class
+    that only has dunder methods, so the namespace is not cluttered with
+    method names. This makes storing and reading to/from json possible.
 
-(1) verslaafden (addicts)
-(2) bejaarden (elderly)
-(3) ggz patienten (psychiatric patients)
-(4) criminelen (criminials)
-(5) gehandicapten (handicapped)
+    NAH has a demo bot, it can connect to IRC, fetch and display RSS
+    feeds, take todo notes, keep a shopping list and log text. You can
+    also copy/paste the service file and run it under systemd for 24/7
+    presence in a IRC channel.
 
-Since the members of the chamber and the king were aware that these medicine
-are poison at the time they voted for this law and the day the Wfz law took
-effect (1-1-2019), i ask the prosecutor to prosecute the king for making the
-commiting of the above mentioned crimes (killing, torture and impotent making)
-possible.
+    NAH is Public Domain.
+
+
+**INSTALL**
+
+::
+
+    $ pipx install nah
+    $ pipx ensurepath
+
+
+**CONFIGURATION**
+
+
+irc
+
+::
+
+    $ nahctl cfg server=<server>
+    $ nahctl cfg channel=<channel>
+    $ nahctl cfg nick=<nick>
+
+sasl
+
+::
+
+    $ nahctl pwd <nsvnick> <nspass>
+    $ nahctl cfg password=<frompwd>
+
+rss
+
+::
+
+    $ nahctl rss <url>
+    $ nahctl dpl <url> <item1,item2>
+    $ nahctl rem <url>
+    $ nahctl nme <url> <name>
+
+opml
+
+::
+
+    $ nahctl exp
+    $ nahctl imp <filename>
+
+
+**SYSTEMD**
+
+::
+
+    $ nahctl srv > obx.service
+    $ sudo mv nah.service /etc/systemd/system/
+    $ sudo systemctl enable nah --now
+
+    joins #nah on localhost
+
+
+**USAGE**
+
+
+without any argument the bot does nothing
+
+::
+
+    $ nahctl
+    $
+
+see list of commands
+
+::
+
+    $ nahctl cmd
+    cfg,cmd,dne,dpl,err,exp,imp,log,mod,mre,nme,
+    pwd,rem,req,res,rss,srv,syn,tdo,thr,upt
+
+
+start a console
+
+::
+
+    $ nahbot
+    >
+
+
+use -v to enable verbose
+
+::
+
+    $ nahbot -v
+    OBX since Tue Sep 17 04:10:08 2024
+    > 
+
+
+use -i to init modules
+
+::
+
+    $ nahbot -i
+    >
+
+
+
+start daemon
+
+::
+
+    $ nahd
+    $
+
+
+start service
+
+::
+
+   $ nahs
+   <runs until ctrl-c>
+
+
+**COMMANDS**
+
+::
+
+    here is a list of available commands
+
+    cfg - irc configuration
+    cmd - commands
+    dpl - sets display items
+    err - show errors
+    exp - export opml (stdout)
+    imp - import opml
+    log - log text
+    mre - display cached output
+    pwd - sasl nickserv name/pass
+    rem - removes a rss feed
+    res - restore deleted feeds
+    rss - add a feed
+    srv - create service file
+    syn - sync rss feeds
+    tdo - add todo item
+    thr - show running threads
+
+
+**SOURCE**
+
+::
+
+    source is at https://github.com/otpcr/nah
+
+
+**FILES**
+
+::
+
+    ~/.nah
+    ~/.local/bin/nahctl
+    ~/.local/bin/nahbot
+    ~/.local/bin/nahd
+    ~/.local/bin/nahs
+    ~/.local/pipx/venvs/nah/*
+
+
+**AUTHOR**
+
+::
+
+    Bart Thate <bthate@dds.nl>
+
+
+**COPYRIGHT**
+
+::
+
+    NAH is Public Domain.

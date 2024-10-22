@@ -21,13 +21,11 @@ classifiers=[
     'Topic :: Utilities'
 ]
 
-
 [project.scripts]
 "nahctl" = "nah.cli:wrapped"
 "nahbot" = "nah.console:wrapped"
 "nahd" = "nah.daemon:main"
 "nahs" = "nah.service:wrapped"
-
 
 [project.urls]
 "home" = "https://pypi.org/project/nah"
