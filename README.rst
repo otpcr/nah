@@ -9,7 +9,7 @@
 
 ::
 
-    nahctl  <cmd> [key=val] [key==val]
+    nah    <cmd> [key=val] [key==val]
     nahbot [-i] [-v]
     nahd 
     nahs
@@ -52,39 +52,39 @@ irc
 
 ::
 
-    $ nahctl cfg server=<server>
-    $ nahctl cfg channel=<channel>
-    $ nahctl cfg nick=<nick>
+    $ nah cfg server=<server>
+    $ nah cfg channel=<channel>
+    $ nah cfg nick=<nick>
 
 sasl
 
 ::
 
-    $ nahctl pwd <nsvnick> <nspass>
-    $ nahctl cfg password=<frompwd>
+    $ nah pwd <nsvnick> <nspass>
+    $ nah cfg password=<frompwd>
 
 rss
 
 ::
 
-    $ nahctl rss <url>
-    $ nahctl dpl <url> <item1,item2>
-    $ nahctl rem <url>
-    $ nahctl nme <url> <name>
+    $ nah rss <url>
+    $ nah dpl <url> <item1,item2>
+    $ nah rem <url>
+    $ nah nme <url> <name>
 
 opml
 
 ::
 
-    $ nahctl exp
-    $ nahctl imp <filename>
+    $ nah exp
+    $ nah imp <filename>
 
 
 **SYSTEMD**
 
 ::
 
-    $ nahctl srv > obx.service
+    $ nah srv > obx.service
     $ sudo mv nah.service /etc/systemd/system/
     $ sudo systemctl enable nah --now
 
@@ -98,14 +98,14 @@ without any argument the bot does nothing
 
 ::
 
-    $ nahctl
+    $ nah
     $
 
 see list of commands
 
 ::
 
-    $ nahctl cmd
+    $ nah cmd
     cfg,cmd,dne,dpl,err,exp,imp,log,mod,mre,nme,
     pwd,rem,req,res,rss,srv,syn,tdo,thr,upt
 
@@ -114,7 +114,7 @@ start a console
 
 ::
 
-    $ nahbot
+    $ nah
     >
 
 
@@ -123,7 +123,7 @@ use -v to enable verbose
 ::
 
     $ nahbot -v
-    OBX since Tue Sep 17 04:10:08 2024
+    NAH since Tue Sep 17 04:10:08 2024
     > 
 
 
@@ -188,7 +188,7 @@ start service
 ::
 
     ~/.nah
-    ~/.local/bin/nahctl
+    ~/.local/bin/nah
     ~/.local/bin/nahbot
     ~/.local/bin/nahd
     ~/.local/bin/nahs
